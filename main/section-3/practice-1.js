@@ -1,16 +1,11 @@
 'use strict';
-
-const helper = require('../helper/helper');
-
 module.exports = function createUpdatedCollection(collectionA, objectB) {
-  let result = [];
-  collectionA.forEach(item => {
+  return collectionA.map(item => {
     let key = item.key;
     let count = item.count;
-    if (helper.includes(objectB.value, key)) {
+    if (objectB.value.includes(key)) {
       count--;
     }
-    result.push({key, count});
+    return {key, count};
   });
-  return result;
 };

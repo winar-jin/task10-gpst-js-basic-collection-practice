@@ -1,6 +1,8 @@
 'use strict';
 const createUpdatedCollection = require('../../main/section-3/practice-4');
 
+const helper = require('../../main/helper/helper');
+
 describe('practice-3-4', () => {
 
   const collectionA = [
@@ -34,4 +36,18 @@ describe('practice-3-4', () => {
       {key: 'd', count: 4}
     ]);
   });
+});
+
+describe('helper', () => {
+  it('owner map function ', () => {
+    let origin = [1, 2, 3, 4];
+    let result = helper.map(origin, (item, index) => item * index);
+    expect(result).toEqual([0, 2, 6, 12]);
+  });
+
+  it('owner reduce function', () => {
+    let origin = [1, 2, 3, 4];
+    let result = helper.reduce(origin, (total, item) => total + item, 0);
+    expect(result).toEqual(10);
+  })
 });
